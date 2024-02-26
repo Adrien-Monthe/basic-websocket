@@ -7,9 +7,11 @@ const io = require('socket.io')(http, {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
+    io.emit('userId', socket.id);
+
     socket.on('message', (data) => {
         console.log(data);
-        io.emit('message', `${socket.id.slice(0, 5)} said ${data}` );
+        io.emit('message', `${data}` );
 
     });
 });
