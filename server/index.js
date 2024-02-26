@@ -9,7 +9,7 @@ io.on('connection', (socket) => {
 
     socket.on('message', (data) => {
         console.log(data);
-        io.emit('message', `${socket.id.slice(0, 2)} said ${message}` );
+        io.emit('message', `${socket.id.slice(0, 5)} said ${data}` );
 
     });
 });
